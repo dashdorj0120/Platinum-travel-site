@@ -18,7 +18,7 @@ class ClientArea {
 
   sendRequest() {
     Axios.post(
-      "https://hungry-babbage-41deb0.netlify.app/.netlify/functions/secret-pages",
+      "https://gracious-goldwasser-ac1769.netlify.com/.netlify/functions/secret-page",
       { password: this.field.value }
     )
       .then(response => {
@@ -26,7 +26,7 @@ class ClientArea {
         this.contentArea.innerHTML = response.data;
       })
       .catch(() => {
-        this.contentArea.innerHTML = `<p class="client-area__error"> Таны оруулсан нууц үг буруу байна. Дахин оролдоно уу </p>`;
+        this.contentArea.innerHTML = `<p class="client-area__error">Таны оруулсан нууц үг буруу байна. Дахин оролдоно уу!</p>`;
         this.field.value = "";
         this.field.focus();
       });
@@ -36,23 +36,17 @@ class ClientArea {
     document.body.insertAdjacentHTML(
       "beforeend",
       `
-        <div class="client-area">
+      <div class="client-area">
       <div class="wrapper wrapper--medium">
-        <h2 class="section-title section-title--blue">
-          Хэрэглэгчийн тусгай хуудас
-        </h2>
+        <h2 class="section-title section-title--blue">Хэрэглэгчийн тусгай хуудас</h2>
         <form action="" class="client-area__form">
-          <input
-            type="text"
-            class="client-area__input"
-            placeholder="Нууц үгээ бичнэ үү"
-          />
+          <input type="text" class="client-area__input" placeholder="Нууц үгээ бичнэ үү">
           <button class="btn btn--orange">Нэвтрэх</button>
         </form>
         <div class="client-area__content-area"></div>
       </div>
     </div>
-        `
+    `
     );
   }
 }

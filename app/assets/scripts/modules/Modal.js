@@ -2,19 +2,14 @@ class Modal {
   constructor() {
     this.injectHTML();
     this.modal = document.querySelector(".modal");
-    // this.openModalButtons = document.querySelectorAll(".open-modal");
     this.closeIcon = document.querySelector(".modal__close");
     this.events();
   }
 
   events() {
-    // Open modal
-    // this.openModalButtons.forEach(el =>
-    //   el.addEventListener("click", e => this.openModal(e))
-    // );
-    // Close modal
+    //Хаах товчлуур дарагдсан эсэхийг ажиглах
     this.closeIcon.addEventListener("click", () => this.closeModal());
-    //Pressed any key
+    //Keyboard дээрээс ямар нэг товчлуур дарсан эсэхийг ажиглах
     document.addEventListener("keyup", e => this.keyPressHandler(e));
   }
 
@@ -25,7 +20,6 @@ class Modal {
   }
 
   openModal() {
-    // e.preventDefault();
     this.modal.classList.add("modal--is-visible");
   }
 
@@ -37,7 +31,7 @@ class Modal {
     document.body.insertAdjacentHTML(
       "beforeend",
       `
-      <div class="modal">
+    <div class="modal">
       <div class="modal__inner">
         <h2
           class="section-title section-title--blue section-title--less-margin"
@@ -70,7 +64,7 @@ class Modal {
       </div>
       <div class="modal__close">X</div>
     </div>
-      `
+    `
     );
   }
 }

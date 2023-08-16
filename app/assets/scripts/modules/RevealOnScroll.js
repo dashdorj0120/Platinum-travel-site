@@ -3,7 +3,6 @@ import debounce from "lodash/debounce";
 
 class RevealOnScroll {
   constructor(els, revealPoint) {
-    // this.itemsToReveal = document.querySelectorAll(".feature-item");
     this.revealPoint = revealPoint;
     this.itemsToReveal = els;
     this.browserHeight = window.innerHeight;
@@ -17,14 +16,14 @@ class RevealOnScroll {
     window.addEventListener(
       "resize",
       debounce(() => {
-        console.log("browser resized");
+        console.log("Browser-ийг resize хийгдлээ.");
         this.browserHeight = window.innerHeight;
-      }, 300)
+      }, 333)
     );
   }
 
   calcCaller() {
-    console.log("scroll work");
+    console.log("Scroll функц ажиллалаа.");
     this.itemsToReveal.forEach(el => {
       if (el.isRevealed == false) {
         this.calculateIfScrolledTo(el);
@@ -34,7 +33,7 @@ class RevealOnScroll {
 
   calculateIfScrolledTo(el) {
     if (window.scrollY + this.browserHeight > el.offsetTop) {
-      console.log("calculate doing");
+      console.log("Тооцоолол хийгдэж байна.");
       let scrollPercent =
         (el.getBoundingClientRect().y / this.browserHeight) * 100;
       if (scrollPercent < this.revealPoint) {
@@ -52,7 +51,6 @@ class RevealOnScroll {
       el.classList.add("reveal-item");
       el.isRevealed = false;
     });
-
     this.itemsToReveal[this.itemsToReveal.length - 1].isLastItem = true;
   }
 }

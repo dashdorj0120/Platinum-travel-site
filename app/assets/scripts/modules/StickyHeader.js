@@ -18,9 +18,9 @@ class StickyHeader {
     window.addEventListener(
       "resize",
       debounce(() => {
-        console.log("browser resized");
+        console.log("Browser-ийг resize хийгдлээ.");
         this.browserHeight = window.innerHeight;
-      }, 300)
+      }, 333)
     );
   }
 
@@ -36,18 +36,18 @@ class StickyHeader {
   }
 
   checkScrollDirection() {
-    if (window.screenY > this.previousScrollY) {
+    if (window.scrollY > this.previousScrollY) {
       this.scrollDirection = "down";
     } else {
       this.scrollDirection = "up";
     }
-    this.previousScrollY = window.screenY;
+    this.previousScrollY = window.scrollY;
   }
 
   calcSection(el) {
     if (
       window.scrollY + this.browserHeight > el.offsetTop &&
-      window.screenY < el.offsetTop + el.offsetHeight
+      window.scrollY < el.offsetTop + el.offsetHeight
     ) {
       let scrollPercent =
         (el.getBoundingClientRect().y / this.browserHeight) * 100;
